@@ -1,103 +1,63 @@
-# DynamoDB Metrics and Table Information Script
+# DynamoDB Metrics and Metadata Fetcher
 
-This Python script fetches and displays various metrics and information about an Amazon DynamoDB table. It provides insights into table size, provisioned throughput, consumed capacity units, and latency metrics. The script also prints detailed metadata about the table's attributes.
+This script fetches and displays various metrics and metadata for a specified DynamoDB table. It includes details such as table size, provisioned throughput, consumed capacity units, latency metrics, and table metadata.
 
 ## Features
 
-- Fetches and prints table size, both with and without Global Secondary Indexes (GSIs).
-- Displays the size of each Global Secondary Index (GSI).
-- Shows provisioned read and write capacity units (RCU and WCU).
-- Retrieves and prints consumed RCUs and WCUs for the current day and month-to-date.
-- Calculates and displays average, maximum, 95th percentile (p95), and 99th percentile (p99) for latency metrics.
-- Prints table metadata, including column names and data types.
+- **Table Size**: Displays the total size of the table, including and excluding Global Secondary Indexes (GSIs).
+- **Table Metadata**: Lists attributes and their types.
+- **Provisioned Throughput**: Shows read and write capacity units.
+- **Consumed Capacity Units**: Provides monthly and daily consumed read and write capacity units (RCUs and WCUs).
+- **Latency Metrics**: Calculates average, maximum, 95th percentile (p95), and 99th percentile (p99) latencies for successful requests.
 
-## Prerequisites
+## Requirements
 
 - Python 3.x
-- AWS SDK for Python (Boto3)
-- AWS credentials configured on your machine
-- **NumPy** (for numerical operations)
+- `boto3` library
+- `numpy` library
 
-## Installation
+You can install the required libraries using pip:
 
-1. Clone this repository:
-   ```sh
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
-   ```
-
-2. Install the required Python packages:
-   ```sh
-   pip3 install boto3 numpy
-   ```
+```bash
+pip install boto3 numpy
+```
 
 ## Usage
 
-Run the script from the command line and provide the DynamoDB table name as a parameter:
+To run the script, provide the table name and optionally specify the AWS region. The default region is `us-east-2`.
 
-```sh
-python script.py <table_name>
-```
+### Command Line Arguments
 
-Replace `<table_name>` with the name of your DynamoDB table.
+- `table_name`: The name of the DynamoDB table (required).
+- `--region`: The AWS region where the DynamoDB table is located (optional, default is `us-east-2`).
 
 ### Example
 
-```sh
-python script.py Books
+```bash
+python your_script.py MyTableName --region us-west-1
 ```
 
-## Script Details
-
-### Script Overview
-
-- **Imports**:
-  - `boto3`: AWS SDK for Python
-  - `datetime`: For working with dates and times
-  - `argparse`: For command-line argument parsing
-  - `numpy`: For numerical operations (e.g., calculating percentiles)
-
-- **Functions**:
-  - `get_metric_statistics(metric_name, start_time, end_time)`: Fetches metric statistics from CloudWatch.
-  - `calculate_total_consumed_units(metric_name, start_time, end_time)`: Calculates the total consumed units for a given metric.
-  - `calculate_percentiles(data_points, percentiles)`: Calculates specified percentiles from data points.
-  - `print_metrics(metric_name)`: Retrieves and prints latency metrics, including average, maximum, and percentiles.
-  - `print_consumed_units()`: Retrieves and prints the total consumed RCUs and WCUs for the current day and month-to-date.
-
-### Sections
-
-- **Table Size and GSIs**:
-  - Displays total table size and size without GSIs.
-  - Lists the size of each GSI.
-
-- **Provisioned Throughput**:
-  - Shows the read and write capacity units.
-
-- **Table Metadata**:
-  - Prints attribute names and data types.
-
-- **Consumed Units**:
-  - Displays RCUs and WCUs consumed for the current day and month-to-date.
-
-- **Latency Metrics**:
-  - Provides average, maximum, p95, and p99 for latency metrics.
+Replace `your_script.py` with the name of your script file and `MyTableName` with the name of your DynamoDB table.
 
 ## Sample Output
 
-Here is an example of what the output might look like when running the script:
-
 ```
 ************
-Table Name:  Books
-Table Size (Bytes without GSIs): 1048576
-Total Table Size (Bytes including GSIs): 2097152
+Table Name:  MyTableName
+Table Size (Bytes without GSIs): 12345678
+Total Table Size (Bytes including GSIs): 23456789
+************
+Table Metadata:
+Attributes:
+ - id: S
+ - name: S
+ - createdAt: N
 ************
 Reserved Capacity (Not Implemented):
 
 ************
 Global Secondary Indexes and Sizes:
- - GSI1: 512000 bytes
- - GSI2: 256000 bytes
+ - MyIndexName: 987654 bytes
 ************
 Replica Settings:
 []
@@ -106,32 +66,22 @@ Provisioned Throughput:
 Read Capacity Units (RCU): 5
 Write Capacity Units (WCU): 5
 ************
-Table Metadata:
-Attributes:
- - Title: S
- - Author: S
- - PublishedYear: N
+Total Consumed RCUs for MyTableName (Month to Date): 12345
+Total Consumed WCUs for MyTableName (Month to Date): 67890
+Total Consumed RCUs for MyTableName (Current Day): 1234
+Total Consumed WCUs for MyTableName (Current Day): 5678
 ************
-Total Consumed RCUs for Books (Month to Date): 12345
-Total Consumed WCUs for Books (Month to Date): 6789
-Total Consumed RCUs for Books (Current Day): 345
-Total Consumed WCUs for Books (Current Day): 123
-************
-Average SuccessfulRequestLatency for Books (Month to Date): 120.5 ms
-Maximum SuccessfulRequestLatency for Books (Month to Date): 500.0 ms
-95th Percentile (p95) of SuccessfulRequestLatency: 450.0 ms
-99th Percentile (p99) of SuccessfulRequestLatency: 490.0 ms
+Average SuccessfulRequestLatency for MyTableName (Month to Date): 25.0 ms
+Maximum SuccessfulRequestLatency for MyTableName (Month to Date): 100.0 ms
+95th Percentile (p95) of SuccessfulRequestLatency: 50.0 ms
+99th Percentile (p99) of SuccessfulRequestLatency: 75.0 ms
 ************
 ```
 
 ## Notes
 
-- Ensure your AWS credentials are configured properly.
-- Modify the script if needed to fit your specific use case or metric requirements.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- Ensure that your AWS credentials are configured properly.
+- Reserved capacity is managed differently and is not implemented in this script.
 ```
 
-This `README.md` now includes a sample output to give users a clear idea of what to expect when they run the script. Adjust the values and structure as needed to match your actual results.
+Feel free to adjust any details as needed for your specific use case!
