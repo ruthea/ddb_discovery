@@ -34,7 +34,7 @@ To run the script, provide the table name and optionally specify the AWS region.
 ### Example
 
 ```bash
-python getstats.py MyTableName --region us-west-1
+python getstats.py MyTableName --region us-west-2
 ```
 
 Replace `getstats.py` with the name of your script file and `MyTableName` with the name of your DynamoDB table.
@@ -60,7 +60,7 @@ Global Secondary Indexes and Sizes:
  - MyIndexName: 987654 bytes
 ************
 Replica Settings:
-[]
+[{'RegionName': 'us-west-1', 'ReplicaStatus': 'ACTIVE'}]
 ************
 Provisioned Throughput:
 Read Capacity Units (RCU): 5
