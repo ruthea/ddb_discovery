@@ -1,6 +1,3 @@
-Here's an updated `README.md` for your latest script:
-
-```markdown
 # DynamoDB Metrics and Table Information Script
 
 This Python script fetches and displays various metrics and information about an Amazon DynamoDB table. It provides insights into table size, provisioned throughput, consumed capacity units, and latency metrics. The script also prints detailed metadata about the table's attributes.
