@@ -76,7 +76,8 @@ Maximum SuccessfulRequestLatency for MyTableName (Month to Date): 100.0 ms
 95th Percentile (p95) of SuccessfulRequestLatency: 50.0 ms
 99th Percentile (p99) of SuccessfulRequestLatency: 75.0 ms
 ************
-Latest Backup Size: 9876543 bytes
+Backup List Response: {'BackupSummaries': [{'TableName': 'Books', 'TableId': '<some_guid>', 'TableArn': 'arn:aws:dynamodb:us-east-2:<some-arn>:table/Books', 'BackupArn': 'arn:aws:dynamodb:us-east-2:<some-arn>:table/Books/backup/<somelocation>', 'BackupName': 'first-backup', 'BackupCreationDateTime': datetime.datetime(2024, 9, 17, 21, 39, 23, 551000, tzinfo=tzlocal()), 'BackupStatus': 'AVAILABLE', 'BackupType': 'USER', 'BackupSizeBytes': 223}], 'ResponseMetadata': {'RequestId': '<somerequest>', 'HTTPStatusCode': 200, 'HTTPHeaders': {'server': 'Server', 'date': 'Wed, 18 Sep 2024 02:39:57 GMT', 'content-type': 'application/x-amz-json-1.0', 'content-length': '393', 'connection': 'keep-alive', 'x-amzn-requestid': '<somerequest>', 'x-amz-crc32': '<crc32>'}, 'RetryAttempts': 0}}
+Latest Backup Size: No backups found bytes
 ************
 ```
 
