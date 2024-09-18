@@ -86,10 +86,6 @@ python script.py Books
 - Ensure your AWS credentials are configured properly.
 - Modify the script if needed to fit your specific use case or metric requirements.
 
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ```
 
 Feel free to adjust the content based on any additional details or changes in your project!
