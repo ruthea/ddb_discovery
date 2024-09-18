@@ -49,9 +49,9 @@ Total Table Size (Bytes including GSIs): 23456789
 ************
 Table Metadata:
 Attributes:
- - id: S
- - name: S
- - createdAt: N
+ - book: S
+ - title: S
+ - year: N
 ************
 Reserved Capacity (Not Implemented):
 
