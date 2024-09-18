@@ -3,22 +3,27 @@ from datetime import datetime, timezone, timedelta
 import argparse
 import numpy as np
 
-# Set up argument parser to accept table_name as a command line argument
+# Define AWS region
+REGION_NAME = 'us-east-2'
+
+# Set up argument parser to accept table_name and region as command line arguments
 parser = argparse.ArgumentParser(description="Fetch DynamoDB table metrics and information.")
 parser.add_argument('table_name', type=str, help="Name of the DynamoDB table")
+parser.add_argument('--region', type=str, default=REGION_NAME, help="AWS region name (default: us-east-2)")
 args = parser.parse_args()
 
-# Get the table name from the command line arguments
+# Get the table name and region from the command line arguments
 table_name = args.table_name
+region_name = args.region
 
 # Initialize DynamoDB client
-client = boto3.client('dynamodb', region_name='us-east-2')
+client = boto3.client('dynamodb', region_name=region_name)
 
 # Initialize CloudWatch client to fetch metrics like latencies
-cloudwatch = boto3.client('cloudwatch', region_name='us-east-2')
+cloudwatch = boto3.client('cloudwatch', region_name=region_name)
 
 # Initialize DynamoDB resource for working with the table directly
-dynamodb_resource = boto3.resource('dynamodb', region_name='us-east-2')
+dynamodb_resource = boto3.resource('dynamodb', region_name=region_name)
 table = dynamodb_resource.Table(table_name)
 
 # Fetch table metadata using describe_table() to get size information including indexes
