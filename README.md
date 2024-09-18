@@ -34,10 +34,10 @@ To run the script, provide the table name and optionally specify the AWS region.
 ### Example
 
 ```bash
-python your_script.py MyTableName --region us-west-1
+python getstats.py MyTableName --region us-west-1
 ```
 
-Replace `your_script.py` with the name of your script file and `MyTableName` with the name of your DynamoDB table.
+Replace `getstats.py` with the name of your script file and `MyTableName` with the name of your DynamoDB table.
 
 ## Sample Output
 
