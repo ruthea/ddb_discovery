@@ -82,6 +82,48 @@ python script.py Books
 - **Latency Metrics**:
   - Provides average, maximum, p95, and p99 for latency metrics.
 
+## Sample Output
+
+Here is an example of what the output might look like when running the script:
+
+```
+************
+Table Name:  Books
+Table Size (Bytes without GSIs): 1048576
+Total Table Size (Bytes including GSIs): 2097152
+************
+Reserved Capacity (Not Implemented):
+
+************
+Global Secondary Indexes and Sizes:
+ - GSI1: 512000 bytes
+ - GSI2: 256000 bytes
+************
+Replica Settings:
+[]
+************
+Provisioned Throughput:
+Read Capacity Units (RCU): 5
+Write Capacity Units (WCU): 5
+************
+Table Metadata:
+Attributes:
+ - Title: S
+ - Author: S
+ - PublishedYear: N
+************
+Total Consumed RCUs for Books (Month to Date): 12345
+Total Consumed WCUs for Books (Month to Date): 6789
+Total Consumed RCUs for Books (Current Day): 345
+Total Consumed WCUs for Books (Current Day): 123
+************
+Average SuccessfulRequestLatency for Books (Month to Date): 120.5 ms
+Maximum SuccessfulRequestLatency for Books (Month to Date): 500.0 ms
+95th Percentile (p95) of SuccessfulRequestLatency: 450.0 ms
+99th Percentile (p99) of SuccessfulRequestLatency: 490.0 ms
+************
+```
+
 ## Notes
 
 - Ensure your AWS credentials are configured properly.
@@ -93,4 +135,4 @@ python script.py Books
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
 
-This updated `README.md` now includes instructions for installing the `numpy` dependency along with the other required packages.
+This `README.md` now includes a sample output to give users a clear idea of what to expect when they run the script. Adjust the values and structure as needed to match your actual results.
