@@ -28,7 +28,7 @@ This Python script fetches and displays various metrics and information about an
 
 2. Install the required Python packages:
    ```sh
-   pip install boto3 numpy
+   pip3 install boto3 numpy
    ```
 
 ## Usage
@@ -127,7 +127,6 @@ Maximum SuccessfulRequestLatency for Books (Month to Date): 500.0 ms
 ## Notes
 
 - Ensure your AWS credentials are configured properly.
-- Install `numpy` using `pip install numpy` if not already installed.
 - Modify the script if needed to fit your specific use case or metric requirements.
 
 ## License
