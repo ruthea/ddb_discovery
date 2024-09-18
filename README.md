@@ -1,3 +1,6 @@
+Here's the updated `README.md` with instructions for installing the `numpy` dependency:
+
+```markdown
 # DynamoDB Metrics and Table Information Script
 
 This Python script fetches and displays various metrics and information about an Amazon DynamoDB table. It provides insights into table size, provisioned throughput, consumed capacity units, and latency metrics. The script also prints detailed metadata about the table's attributes.
@@ -16,6 +19,7 @@ This Python script fetches and displays various metrics and information about an
 - Python 3.x
 - AWS SDK for Python (Boto3)
 - AWS credentials configured on your machine
+- **NumPy** (for numerical operations)
 
 ## Installation
 
@@ -25,9 +29,9 @@ This Python script fetches and displays various metrics and information about an
    cd your-repo
    ```
 
-2. Install the required Python package:
+2. Install the required Python packages:
    ```sh
-   pip install boto3
+   pip install boto3 numpy
    ```
 
 ## Usage
@@ -54,7 +58,7 @@ python script.py Books
   - `boto3`: AWS SDK for Python
   - `datetime`: For working with dates and times
   - `argparse`: For command-line argument parsing
-  - `numpy`: For numerical operations (optional, if you use it)
+  - `numpy`: For numerical operations (e.g., calculating percentiles)
 
 - **Functions**:
   - `get_metric_statistics(metric_name, start_time, end_time)`: Fetches metric statistics from CloudWatch.
@@ -84,8 +88,12 @@ python script.py Books
 ## Notes
 
 - Ensure your AWS credentials are configured properly.
+- Install `numpy` using `pip install numpy` if not already installed.
 - Modify the script if needed to fit your specific use case or metric requirements.
 
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 ```
 
-Feel free to adjust the content based on any additional details or changes in your project!
+This updated `README.md` now includes instructions for installing the `numpy` dependency along with the other required packages.
