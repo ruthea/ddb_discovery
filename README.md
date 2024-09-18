@@ -76,12 +76,15 @@ Maximum SuccessfulRequestLatency for MyTableName (Month to Date): 100.0 ms
 95th Percentile (p95) of SuccessfulRequestLatency: 50.0 ms
 99th Percentile (p99) of SuccessfulRequestLatency: 75.0 ms
 ************
+Latest Backup Size: 9876543 bytes
+************
 ```
 
 ## Notes
 
 - Ensure that your AWS credentials are configured properly.
 - Reserved capacity is managed differently and is not implemented in this script.
+- Backup Size Retrieval: The script attempts to retrieve the size of the latest backup. Ensure that your IAM role has the necessary permissions to call list_backups and describe_backup.
 ```
 
 Feel free to adjust any details as needed for your specific use case!
